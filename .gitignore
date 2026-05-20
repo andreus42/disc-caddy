@@ -21,6 +21,12 @@ expo-env.d.ts
 # Metro
 .metro-health-check*
 
+# EAS / Firebase distribution build artifacts
+*.apk
+*.aab
+*.ipa
+eas-build-*.log
+
 # debug
 npm-debug.*
 yarn-debug.*

@@ -26,3 +26,9 @@ npm run web        # Web preview (limited; see spec)
 ```bash
 npm test
 ```
+
+## Distribute
+
+Pre-release builds ship to testers via Firebase App Distribution — see
+[`DISTRIBUTION.md`](./DISTRIBUTION.md) for the one-time setup and the
+build/upload commands.
