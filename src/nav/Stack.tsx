@@ -2,10 +2,12 @@ import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CourseEditRoute } from '../screens/CourseEditScreen';
 import { CoursesRoute } from '../screens/CoursesScreen';
+import { FinishRoute } from '../screens/FinishScreen';
 import { HoleRoute } from '../screens/HoleScreen';
 import { HomeRoute } from '../screens/HomeScreen';
 import { PlaceholderScreen } from '../screens/Placeholder';
 import { PlayersRoute } from '../screens/PlayersScreen';
+import { ViewCardScreen } from '../screens/ViewCardScreen';
 import { colors } from '../theme';
 import type { RootStackParamList } from './types';
 
@@ -49,14 +51,8 @@ export function RootStack() {
           name="scorecards"
           children={() => <PlaceholderScreen title="Scorecards" />}
         />
-        <Stack.Screen
-          name="viewCard"
-          children={() => <PlaceholderScreen title="Round" />}
-        />
-        <Stack.Screen
-          name="finish"
-          children={() => <PlaceholderScreen title="Finish" />}
-        />
+        <Stack.Screen name="viewCard" component={ViewCardScreen} />
+        <Stack.Screen name="finish" component={FinishRoute} />
       </Stack.Navigator>
     </NavigationContainer>
   );

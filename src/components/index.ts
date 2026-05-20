@@ -10,3 +10,4 @@ export { LegendChip } from './LegendChip';
 export { HoleParRow } from './HoleParRow';
 export { PlayerRow } from './PlayerRow';
 export { HoleStrip } from './HoleStrip';
+export { ScoreGrid } from './ScoreGrid';
