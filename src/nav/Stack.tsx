@@ -7,6 +7,7 @@ import { HoleRoute } from '../screens/HoleScreen';
 import { HomeRoute } from '../screens/HomeScreen';
 import { PlaceholderScreen } from '../screens/Placeholder';
 import { PlayersRoute } from '../screens/PlayersScreen';
+import { ScorecardsRoute } from '../screens/ScorecardsScreen';
 import { ViewCardScreen } from '../screens/ViewCardScreen';
 import { colors } from '../theme';
 import type { RootStackParamList } from './types';
@@ -47,10 +48,7 @@ export function RootStack() {
           name="stats"
           children={() => <PlaceholderScreen title="Statistics" />}
         />
-        <Stack.Screen
-          name="scorecards"
-          children={() => <PlaceholderScreen title="Scorecards" />}
-        />
+        <Stack.Screen name="scorecards" component={ScorecardsRoute} />
         <Stack.Screen name="viewCard" component={ViewCardScreen} />
         <Stack.Screen name="finish" component={FinishRoute} />
       </Stack.Navigator>
