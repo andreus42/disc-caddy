@@ -2,6 +2,7 @@ import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CourseEditRoute } from '../screens/CourseEditScreen';
 import { CoursesRoute } from '../screens/CoursesScreen';
+import { HoleRoute } from '../screens/HoleScreen';
 import { HomeRoute } from '../screens/HomeScreen';
 import { PlaceholderScreen } from '../screens/Placeholder';
 import { PlayersRoute } from '../screens/PlayersScreen';
@@ -36,10 +37,7 @@ export function RootStack() {
         }}
       >
         <Stack.Screen name="home" component={HomeRoute} />
-        <Stack.Screen
-          name="hole"
-          children={() => <PlaceholderScreen title="Hole" />}
-        />
+        <Stack.Screen name="hole" component={HoleRoute} />
         <Stack.Screen name="players" component={PlayersRoute} />
         <Stack.Screen name="courses" component={CoursesRoute} />
         <Stack.Screen name="courseEdit" component={CourseEditRoute} />

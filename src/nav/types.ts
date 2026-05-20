@@ -9,5 +9,5 @@ export type RootStackParamList = {
   stats: undefined;
   scorecards: undefined;
   viewCard: { historyId: string };
-  finish: undefined;
+  finish: { historyId: string };
 };
