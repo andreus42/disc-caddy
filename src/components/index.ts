@@ -12,3 +12,4 @@ export { PlayerRow } from './PlayerRow';
 export { HoleStrip } from './HoleStrip';
 export { ScoreGrid } from './ScoreGrid';
 export { HistoryRow } from './HistoryRow';
+export { HoleAvgChart } from './HoleAvgChart';

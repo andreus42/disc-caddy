@@ -5,9 +5,9 @@ import { CoursesRoute } from '../screens/CoursesScreen';
 import { FinishRoute } from '../screens/FinishScreen';
 import { HoleRoute } from '../screens/HoleScreen';
 import { HomeRoute } from '../screens/HomeScreen';
-import { PlaceholderScreen } from '../screens/Placeholder';
 import { PlayersRoute } from '../screens/PlayersScreen';
 import { ScorecardsRoute } from '../screens/ScorecardsScreen';
+import { StatsScreen } from '../screens/StatsScreen';
 import { ViewCardScreen } from '../screens/ViewCardScreen';
 import { colors } from '../theme';
 import type { RootStackParamList } from './types';
@@ -27,8 +27,7 @@ const navTheme = {
 };
 
 /**
- * Root navigator. Every screen from spec §5 has a route; non-home routes
- * render a Placeholder until their dedicated commit lands.
+ * Root navigator. Every screen from spec §5 has its own route component.
  */
 export function RootStack() {
   return (
@@ -44,10 +43,7 @@ export function RootStack() {
         <Stack.Screen name="players" component={PlayersRoute} />
         <Stack.Screen name="courses" component={CoursesRoute} />
         <Stack.Screen name="courseEdit" component={CourseEditRoute} />
-        <Stack.Screen
-          name="stats"
-          children={() => <PlaceholderScreen title="Statistics" />}
-        />
+        <Stack.Screen name="stats" component={StatsScreen} />
         <Stack.Screen name="scorecards" component={ScorecardsRoute} />
         <Stack.Screen name="viewCard" component={ViewCardScreen} />
         <Stack.Screen name="finish" component={FinishRoute} />
