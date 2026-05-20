@@ -4,8 +4,8 @@ export type RootStackParamList = {
   hole: undefined;
   players: undefined;
   courses: undefined;
-  /** courseId of an existing course (new courses are created in the list first). */
-  courseEdit: { courseId: string };
+  /** courseId of an existing course, or `null` to start a fresh 18-hole par-3. */
+  courseEdit: { courseId: string | null };
   stats: undefined;
   scorecards: undefined;
   viewCard: { historyId: string };
