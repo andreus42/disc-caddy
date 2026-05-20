@@ -223,7 +223,7 @@ function PlayerEditRow({
         accessibilityRole="button"
         accessibilityLabel="Remove player"
         accessibilityState={{ disabled: disableRemove }}
-        hitSlop={4}
+        hitSlop={8}
         style={({ pressed }) => [
           rowStyles.removeBtn,
           disableRemove && rowStyles.removeBtnDisabled,

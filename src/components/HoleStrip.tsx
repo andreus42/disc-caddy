@@ -1,5 +1,21 @@
-import { StyleSheet, View } from 'react-native';
+import { useEffect } from 'react';
+import {
+  LayoutAnimation,
+  Platform,
+  StyleSheet,
+  UIManager,
+  View,
+} from 'react-native';
+import { useReduceMotion } from '../lib/useReduceMotion';
 import { colors } from '../theme';
+
+// One-time enablement of LayoutAnimation on Android (no-op on iOS).
+if (
+  Platform.OS === 'android' &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 type Props = {
   total: number;
@@ -11,13 +27,22 @@ type Props = {
  * HoleStrip (spec §5.2). Row of N ticks below the hole header:
  * current is amber and wider, past are cyan, future are cyanFaint.
  *
- * Transition timing per spec §10 is intentionally minimal; we use plain
- * static styles here and rely on RN's view-prop diff for the snap. A
- * subtle width animation would be added in the §10 polish pass.
+ * A 0.2s LayoutAnimation eases the current-tick width change when `current`
+ * changes — gated on `useReduceMotion()` per spec §10.
  */
 export function HoleStrip({ total, current }: Props) {
+  const reduceMotion = useReduceMotion();
+
+  useEffect(() => {
+    if (reduceMotion) return;
+    LayoutAnimation.configureNext({
+      duration: 200,
+      update: { type: 'easeInEaseOut', property: 'scaleXY' },
+    });
+  }, [current, reduceMotion]);
+
   return (
-    <View style={styles.row}>
+    <View style={styles.row} accessibilityLabel={`Hole ${current + 1} of ${total}`}>
       {Array.from({ length: total }, (_, i) => {
         const isCurrent = i === current;
         const isPast = i < current;
